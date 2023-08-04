@@ -47,21 +47,5 @@ namespace UnitTests
             mockAction.Verify(action => action.Invoke("b"), Times.Exactly(3));
             mockAction.Verify(action => action.Invoke("c"), Times.Exactly(3));
         }
-
-        [Fact]
-        public void UsageExample()
-        {
-            int[] ints = { 1, 2, 3 };
-
-            ints.ForEach(i =>
-            {
-                string[] strings = { "a", "b", "c" };
-                strings.ForEach(s =>
-                {
-                    testOutputHelper.WriteLine($"i = {i}");
-                    testOutputHelper.WriteLine($"s = {s}");
-                });
-            });
-        }
     }
 }

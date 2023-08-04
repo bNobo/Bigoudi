@@ -16,7 +16,7 @@ public class LoopTests
     }
 
     [Fact]
-    public void ShouldExecuteDelegateForEachElement()
+    public void ForEachTest()
     {
         Mock<Action<int>> mockAction = new Mock<Action<int>>();
 
@@ -42,22 +42,6 @@ public class LoopTests
         mockAction.Verify(action => action.Invoke("a"), Times.Exactly(3));
         mockAction.Verify(action => action.Invoke("b"), Times.Exactly(3));
         mockAction.Verify(action => action.Invoke("c"), Times.Exactly(3));
-    }
-
-    [Fact]
-    public void UsageExample()
-    {
-        int[] ints = { 1, 2, 3 };
-
-        Loop.ForEach(ints, i =>
-        {
-            string[] strings = { "a", "b", "c" };
-            Loop.ForEach(strings, s =>
-            {
-                testOutputHelper.WriteLine($"i = {i}");
-                testOutputHelper.WriteLine($"s = {s}");
-            });
-        });
     }
 
     [Fact]
