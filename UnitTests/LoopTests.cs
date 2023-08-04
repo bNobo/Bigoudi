@@ -111,5 +111,28 @@ namespace UnitTests
             mockAction.Verify(action => action.Invoke(5));
             mockAction.Verify(action => action.Invoke(It.IsAny<int>()), Times.Exactly(3));
         }
+
+        [Fact]
+        public void WhileTest()
+        {
+            Mock<Action> mockAction = new Mock<Action>();
+            int i = 0;
+
+            Loop.While(mockAction.Object, () => i++ < 3);
+
+            mockAction.Verify(action => action.Invoke(), Times.Exactly(3));
+        }
+
+        [Fact]
+        public void DoWhileTest()
+        {
+            Mock<Action> mockAction = new Mock<Action>();
+            int i = 0;
+
+            Loop.DoWhile(mockAction.Object, () => i++ < 3);
+
+            mockAction.Verify(action => action.Invoke(), Times.Exactly(4));
+        }
+
     }
 }

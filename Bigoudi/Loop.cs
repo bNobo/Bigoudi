@@ -26,4 +26,20 @@ public class Loop
             iterations--;
         }
     }
+
+    public static void While(Action execute, Func<bool> condition)
+    {
+        while (condition())
+        {
+            execute();
+        }
+    }
+
+    public static void DoWhile(Action execute, Func<bool> condition) 
+    {
+        do
+        {
+            execute();
+        } while (condition());
+    }
 }
