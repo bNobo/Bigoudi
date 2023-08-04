@@ -42,4 +42,16 @@ public class Loop
             execute();
         } while (condition());
     }
+
+    /// <summary>
+    /// Use with caution !
+    /// </summary>
+    public static void Infinite(CancellationToken token, Action? execute = null)
+    {
+        while (true)
+        {
+            execute?.Invoke();
+            token.ThrowIfCancellationRequested();
+        }
+    }
 }
