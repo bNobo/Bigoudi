@@ -4,6 +4,28 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>Bigoudi</Title>
+    <Description>Un package pour faire des boucles.</Description>
+    <Version>$(VersionPrefix)0.0.1</Version>
+    <Authors>bNobo34</Authors>
+    <Copyright>Copyright (c) bNobo34 2023</Copyright>
+    <PackageProjectUrl>https://github.com/bNobo/Bigoudi</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>bigoudi_logo_small.png</PackageIcon>
+    <RepositoryUrl>https://github.com/bNobo/Bigoudi</RepositoryUrl>
+    <PackageTags>loop iterate for foreach while infinite bigoudi</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\bigoudi_logo_small.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
