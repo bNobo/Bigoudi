@@ -59,5 +59,57 @@ namespace UnitTests
                 });
             });
         }
+
+        [Fact]
+        public void ForTestDefault()
+        {
+            Mock<Action<int>> mockAction = new Mock<Action<int>>();
+
+            Loop.For(mockAction.Object, 3);
+
+            mockAction.Verify(action => action.Invoke(0));
+            mockAction.Verify(action => action.Invoke(1));
+            mockAction.Verify(action => action.Invoke(2));
+            mockAction.Verify(action => action.Invoke(It.IsAny<int>()), Times.Exactly(3));
+        }
+
+        [Fact]
+        public void ForTest()
+        {
+            Mock<Action<int>> mockAction = new Mock<Action<int>>();
+
+            Loop.For(mockAction.Object, 6, 1, 2);
+
+            mockAction.Verify(action => action.Invoke(1));
+            mockAction.Verify(action => action.Invoke(3));
+            mockAction.Verify(action => action.Invoke(5));
+            mockAction.Verify(action => action.Invoke(It.IsAny<int>()), Times.Exactly(3));
+        }
+
+        [Fact]
+        public void IterateTestDefault()
+        {
+            Mock<Action<int>> mockAction = new Mock<Action<int>>();
+
+            Loop.Iterate(mockAction.Object, 3);
+
+            mockAction.Verify(action => action.Invoke(0));
+            mockAction.Verify(action => action.Invoke(1));
+            mockAction.Verify(action => action.Invoke(2));
+            mockAction.Verify(action => action.Invoke(It.IsAny<int>()), Times.Exactly(3));
+        }
+
+        [Fact]
+        public void IterateTest()
+        {
+            Mock<Action<int>> mockAction = new Mock<Action<int>>();
+
+            Loop.Iterate(mockAction.Object, 3, 1, 2);
+
+            mockAction.Verify(action => action.Invoke(1));
+            mockAction.Verify(action => action.Invoke(3));
+            mockAction.Verify(action => action.Invoke(5));
+            mockAction.Verify(action => action.Invoke(It.IsAny<int>()), Times.Exactly(3));
+        }
     }
 }
